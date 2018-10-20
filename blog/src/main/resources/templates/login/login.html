@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+       <span>用户名</span> <input id="userName" name="用户名" type="text">
+       <span>密码</span>  <input id="pswd" name="密码" type="password">
+        <button name="" onclick="goLogin()">确认登录</button>
+    </div>
+</body>
+<script th:src="@{/js/jquery-3.3.1.js}"></script>
+<script>
+    function goLogin(){
+        $.ajax({
+            url: "/goLogin",
+            data:{
+                userName:$("#userName").val(),
+                password:$("#pswd").val()
+            },
+            success: function(data){
+                if(!data.success){
+                    alert(data.msg)
+                }else {
+                    window.location.href = "/index"
+                }
+            }});
+    }
+</script>
+</html>
