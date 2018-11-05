@@ -1,25 +1,39 @@
 package com.first.project.domain;
 
-public class Topic extends DbCommon {
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "topic_main")
+public class Topic extends DbCommon{
 
     private static final long serialVersionUID = 4800615921476597884L;
 
+    @Column(name = "topic_name",length = 50)
     private String topicName;
 
+    @Column(name = "author",length = 50)
     private String author;
 
+    @Column(name = "view_time")
     private Integer viewTime = 0;
 
+    @Column(name = "click_time")
     private Integer clickTime = 0;
 
+    @Column(name = "cover_img")
     private String coverImg;
 
+    @Column(name = "content")
     private String content;
 
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "is_top")
     private Integer isTop = 0;
 
+    @Column(name = "is_excellent")
     private Integer isExcellent = 0;
 
     public String getTopicName() {
@@ -93,4 +107,6 @@ public class Topic extends DbCommon {
     public void setTitle(String title) {
         this.title = title;
     }
+
+
 }

@@ -1,9 +1,11 @@
 package com.first.project.domain;
 
-import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Date;
 
-public class DbCommon implements Serializable {
+
+@MappedSuperclass
+public abstract class DbCommon{
 
     private Long id;
 
@@ -13,6 +15,9 @@ public class DbCommon implements Serializable {
 
     private Date updateDate;
 
+    @Id
+    @Column(name="id", updatable=false)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
