@@ -21,13 +21,13 @@ public class Topic extends DbCommon{
     @Column(name = "click_time")
     private Integer clickTime = 0;
 
-    @Column(name = "cover_img")
+    @Column(name = "cover_img",length = 100)
     private String coverImg;
 
-    @Column(name = "content")
+    @Column(name = "content",length = 1000)
     private String content;
 
-    @Column(name = "title")
+    @Column(name = "title",length = 20)
     private String title;
 
     @Column(name = "is_top")

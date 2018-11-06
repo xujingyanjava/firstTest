@@ -1,13 +1,13 @@
 package com.first.project;
 
+import com.first.project.config.BaseRepositoryFactoryBean;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@Configuration
-@ComponentScan
-@EnableAutoConfiguration
+
+@EnableJpaRepositories(basePackages = "com.first.project.dao",repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)
+@SpringBootApplication
 //不启用数据源自动配置
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class BlogApplication {

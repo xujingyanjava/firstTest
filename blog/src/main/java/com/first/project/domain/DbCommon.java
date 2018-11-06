@@ -9,7 +9,7 @@ public abstract class DbCommon{
 
     private Long id;
 
-    private Integer deleteFlag;
+    private Integer deleteFlag = 0;
 
     private Date createDate;
 

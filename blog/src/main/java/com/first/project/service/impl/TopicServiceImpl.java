@@ -13,13 +13,11 @@ public class TopicServiceImpl implements TopicService {
 
     private static final Logger log = LoggerFactory.getLogger(TopicServiceImpl.class);
 
+
+
     @Override
     public List<Topic> getTopicList() {
-        log.info("查询列表");
-
-        Topic topic = new Topic();
-        topic.setAuthor("");
-
+//        List<Topic> topicList = commonDao.findAll();
         return null;
     }
 }
