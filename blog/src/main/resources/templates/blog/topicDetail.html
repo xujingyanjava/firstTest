@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>jock`s blos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" th:href="@{assets/css/main.css}" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header th:replace="common/header :: header"></header>
+
+				<!-- Menu -->
+				<section th:replace="common/menu :: menu"></section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#" th:text="${topic.title}">Magna sed adipiscing</a></h2>
+									</div>
+									<div class="meta">
+										<time class="published" th:text="${#dates.format(topic.createDate, 'yyyy-MM-dd')}"></time>
+										<a href="#" class="author"><span class="name">jock_xu</span><img th:src="@{images/avatar.jpg}" alt="" /></a>
+									</div>
+								</header>
+								<!--<span class="image featured"><img th:src="@{images/pic01.jpg}" alt="" /></span>-->
+								<p th:utext="${topic.content}"></p>
+
+								<footer>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<li><a href="#" class="icon fa-heart">28</a></li>
+										<li><a href="#" class="icon fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+				<section id="footer" th:replace="common/footer :: footer"></section>
+
+			</div>
+
+		<!-- Scripts -->
+		<!-- Scripts -->
+		<span th:replace="common/common-js :: common_js"></span>
+
+	</body>
+</html>

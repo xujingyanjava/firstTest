@@ -36,6 +36,9 @@ public class Topic extends DbCommon{
     @Column(name = "is_excellent")
     private Integer isExcellent = 0;
 
+    @Column(name = "two_title",length = 50)
+    private String twoTitle;
+
     public String getTopicName() {
         return topicName;
     }
@@ -109,4 +112,11 @@ public class Topic extends DbCommon{
     }
 
 
+    public String getTwoTitle() {
+        return twoTitle;
+    }
+
+    public void setTwoTitle(String twoTitle) {
+        this.twoTitle = twoTitle;
+    }
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>jock`s blos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" th:href="@{assets/css/main.css}" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header th:replace="common/header :: header"></header>
+
+				<!-- Menu -->
+				<section th:replace="common/menu :: menu"></section>
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post" th:each="topic :${topicList}">
+								<header>
+									<div class="title">
+										<h2><a th:href="@{/getTopicDetail(topicId=${topic.id})}" th:text="${topic.title}"></a></h2>
+									</div>
+									<div class="meta">
+										<time class="published" th:text="${#dates.format(topic.createDate, 'yyyy-MM-dd')}"></time>
+										<a href="#" class="author"><span class="name">Jane Doe</span><img th:src="@{images/pic01.jpg}" alt="" /></a>
+									</div>
+								</header>
+								<!--<a href="topicDetail.html" class="image featured"><img th:src="${topic.coverImg}" alt="" /></a>-->
+								<p th:text="${topic.twoTitle}"></p>
+								<footer>
+									<ul class="actions">
+										<li><a href="topicDetail.html" th:href="@{/getTopicDetail(topicId=${topic.id})}" class="button large">Continue Reading</a></li>
+									</ul>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<li><a href="#" class="icon fa-heart">0</a></li>
+										<li><a href="#" class="icon fa-comment">0</a></li>
+									</ul>
+								</footer>
+							</article>
+
+						<!-- Post -->
+
+						<!-- Pagination -->
+							<ul class="actions pagination">
+								<li th:unless="${isFirst}"><a th:href="@{/getTopicList(page=${number-1},size=${size})}" class="button large next">Previous Page</a></li>
+								<li th:if="${hashNext}"><a th:href="@{/getTopicList(page=${number+1},size=${size})}" class="button large next">Next Page</a></li>
+							</ul>
+
+					</div>
+
+				<!-- Sidebar 左侧列表-->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="#" class="logo"><img th:src="@{images/logo.jpg}" alt="" /></a>
+								<header>
+									<h2>My Style</h2>
+								</header>
+							</section>
+
+						<!-- Posts List -->
+							<section>
+								<ul class="posts">
+									<li th:each="recommendTopic : ${recommendList}">
+										<article>
+											<header>
+												<h3><a href="topicDetail.html" th:text="${recommendTopic.title}"></a></h3>
+												<time class="published" th:text="${#dates.format(recommendTopic.createDate, 'yyyy-MM-dd')}"></time>
+											</header>to
+											<a href="topicDetail.html" class="image"><img th:src="${recommendTopic.coverImg}" alt="" /></a>
+										</article>
+									</li>
+								</ul>
+							</section>
+						<!-- About -->
+							<section class="blurb">
+								<h2>About</h2>
+								<p th:text="${aboutStr}"></p>
+								<!--<ul class="actions">-->
+									<!--<li><a href="#" class="button">Learn More</a></li>-->
+								<!--</ul>-->
+							</section>
+
+						<!-- Footer -->
+						<section id="footer" th:replace="common/footer :: footer"></section>
+					</section>
+			</div>
+
+		<!-- Scripts -->
+		<span th:replace="common/common-js :: common_js"></span>
+	</body>
+</html>

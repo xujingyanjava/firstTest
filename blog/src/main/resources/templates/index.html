@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Strata by HTML5 UP</title>
+		<title>jock`s blos</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" th:href="@{/css/assets/css/main.css}"/>
@@ -22,35 +22,16 @@
 			<div id="main">
 
 				<!-- One -->
-					<section id="one">
+					<section id="one" th:each="topic : ${topicList}">
 						<header class="major">
-							<!--<h2>我思<br />-->
-							<!--故我在.</h2>-->
-							<h2>Test<br />
-							Test No.</h2>
+							<h2 th:text="${topic.title}">Test<br />
+							</h2>
 						</header>
-						<p>Test Two.</p>
+						<p th:text="${topic.twoTitle}">Test Two.</p>
 						<ul class="actions">
 							<li><a href="#" class="button">Learn More</a></li>
 						</ul>
 					</section>
-
-				<!-- Two -->
-					<section id="two">
-						<h2>Recent Work</h2>
-						<div class="row">
-
-							<article class="col-6 col-12-xsmall work-item" th:each="topic : ${topicList}">
-								<a th:href="@{/images/fulls/01.jpg}" class="image fit thumb"><img th:src="@{/images/thumbs/02.jpg}" alt="" /></a>
-								<h3 th:text="${topic.title}"></h3>
-								<p th:text="${topic.content}"></p>
-							</article>
-						</div>
-						<ul class="actions">
-							<li><a href="#" class="button">Full Portfolio</a></li>
-						</ul>
-					</section>
-
 				<!-- Three -->
 					<section id="three">
 						<h2>Get In Touch</h2>
@@ -104,7 +85,6 @@
 					</ul>
 				</div>
 			</footer>
-
 		<!-- Scripts -->
 			<script th:src="@{/css/assets/js/jquery.min.js}"></script>
 			<script th:src="@{/css/assets/js/jquery.poptrox.min.js}"></script>
